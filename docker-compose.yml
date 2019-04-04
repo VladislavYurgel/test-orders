@@ -14,6 +14,8 @@ services:
     depends_on:
       - php
       - mysqldb
+    networks:
+      - backend
 
   php:
     image: nanoninja/php-fpm:${PHP_VERSION}
@@ -22,12 +24,16 @@ services:
     volumes:
       - "./etc/php/php.ini:/usr/local/php/conf.d/php.ini"
       - "./web:/var/www/html"
+    networks:
+      - backend
   
   composer:
     image: painless/composer
     container_name: composer
     volumes:
       - "./web:/app"
+    networks:
+      - backend
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -40,6 +46,8 @@ services:
     restart: always
     depends_on:
       - mysqldb
+    networks:
+      - backend
       
   mysqldb:
     image: mysql:${MYSQL_VERSION}
@@ -56,3 +64,9 @@ services:
       - "3306:3306"
     volumes:
       - "./etc/mysql/data:/var/lib/mysql"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: "bridge"

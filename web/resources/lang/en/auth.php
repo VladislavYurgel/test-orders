@@ -15,5 +15,10 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'welcome_message' => 'Hello, :email',
 
+    'jwt' => [
+        'token_not_provided' => 'User token is not provided',
+        'token_expired' => 'User token is expired',
+    ],
 ];
