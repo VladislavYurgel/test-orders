@@ -60,6 +60,10 @@ sudo make composer install
 
 - Copy `.env.example` as `.env` in the project root folder
 
+```bash
+cp ./.env.example ./.env
+```
+
 - Generate key for encoding, migrate the database and run the database seeders
 
 ```bash
@@ -69,7 +73,7 @@ docker-exec -it php bash
 > php artisan migrate:fresh && php artisan db:seed
 ```
 
-## Usage commands
+## Project Commands Instruction
 
 - Show help of the `makefile`
 ```bash
@@ -97,7 +101,7 @@ docker-exec -it php bash
 > php artisan order:status:change --user=1 --status=2
 ```
 
-## Usage API
+## API Usage Instruction
 
 In the next specified url the `{url}` is understood as `localhost` or `smartsatu.test`
 
